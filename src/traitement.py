@@ -40,3 +40,4 @@ def somme_par_iban_destinataire(transactions: list[Transaction]) -> dict[str, De
 
 def depasse_5000(transaction: Transaction) -> bool:
     return transaction["montant"] > 5000
+
