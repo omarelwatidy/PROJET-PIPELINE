@@ -1,21 +1,4 @@
-python test_integration.py
-fail   ./transactions_2026-09-01.csv : [<class 'decimal.ConversionSyntax'>]
-ignore  ./transactions_2026-09-09.csv (contenu deja traite)
-ignore  ./transactions_2026-09-10.csv (contenu deja traite)
-1 echec(s)
-Traceback (most recent call last):
-  File "/Users/omarelwatidy/projet-pipeline/src/test_integration.py", line 58, in <module>
-    test_pipeline_integration(".","transactions.db")
-  File "/Users/omarelwatidy/projet-pipeline/src/test_integration.py", line 14, in test_pipeline_integration
-    assert code == 0
-           ^^^^^^^^^
-AssertionError
 
-mypy traitement.py
-traitement.py:45: error: Unsupported operand types for + ("str" and "Decimal")  [operator]
-Found 1 error in 1 file (checked 1 source file)
-def formatter_montant(transaction: Transaction) -> str:
-    return "Montant: " + transaction["montant"]
 
 # Pipeline 
 
