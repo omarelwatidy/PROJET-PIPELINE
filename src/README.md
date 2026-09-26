@@ -1,7 +1,15 @@
 
 
 # Pipeline 
+## Fichiers
+generate.py: génère les csv de test.
 
+typess.py: definit la classe Transaction
+chargement.py: lit un csv et le transforme en liste de Transaction.
+traitement.py: sommes par IBAN , somme par banque, et le test montant >5000
+inserer.py: insère les transactions  dans la base ,soit tout passe, soit rien n'est écrit.
+test_etape4.py: le pipeline complet: génère, hash, charge, traite, insère et renvoie un code non nul si un fichier a échoué.
+test_integration.py: fait tourner le pipeline et vérifie que les chiffres de la base sont corrects (nombre de lignes, sommes, transactions > 5000), puis relance tout pour s'assurer qu'il n'y a pas de doublons.
 ## Installation
 
     python -m venv venv
@@ -12,13 +20,13 @@
 
 Lancer le pipeline complet:
 
-    python test_etape3.py
+    python test_etape4.py
 
-Lancer les tests :
+Lancer les tests:
 
-    pytest -v
+    python -m pytest -v
 
-Vérifier les types :
+Vérifier les types:
 
     mypy .
 

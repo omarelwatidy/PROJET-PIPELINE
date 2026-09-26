@@ -6,7 +6,7 @@ from traitement import (
     somme_par_iban_origine,
     depasse_5000,
 )
-from test_etape3 import pipeline
+from test_etape4 import pipeline
 
 def test_pipeline_integration():
     dossier_tmp = tempfile.mkdtemp()
