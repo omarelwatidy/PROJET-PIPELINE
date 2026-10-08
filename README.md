@@ -3,11 +3,17 @@
 generate.py: génère les csv de test.
 
 typess.py: definit la classe Transaction
+
 chargement.py: lit un csv et le transforme en liste de Transaction.
+
 traitement.py: sommes par IBAN , somme par banque, et le test montant >5000
+
 inserer.py: insère les transactions  dans la base ,soit tout passe, soit rien n'est écrit.
+
 test_etape4.py: le pipeline complet: génère, hash, charge, traite, insère et renvoie un code non nul si un fichier a échoué.
+
 test_integration.py: fait tourner le pipeline et vérifie que les chiffres de la base sont corrects (nombre de lignes, sommes, transactions > 5000), puis relance tout pour s'assurer qu'il n'y a pas de doublons.
+
 ## Installation
 
     python -m venv venv
@@ -70,7 +76,7 @@ c'est annulé  en cas d'erreur.
 
 ## idempotence
 
-Chaque fichier est identifié par le hash de son contenu, donc deux noms différents pour un même contenu donnent le même hash et le fichier est traité une fois, un même nom réutilisé pour un contenu différent est traité comme un nouveau fichier. Le hash est inséré dans fichiers_traites (colonne UNIQUE) dans la même transaction que les lignes de transactions et resultats, donc soit tout est inséré, soit
+Chaque fichier est identifié par le hash de son contenu, donc deux noms différents pour un même contenu donnent le même hash et le fichier est traité une fois, un même nom réutilisé pour un contenu différent est traité comme un nouveau fichier. Le hash est inséré dans fichiers_traites (colonne PRIMARY KEY) dans la même transaction que les lignes de transactions et resultats, donc soit tout est inséré, soit
 rien n'est insérer.
 
 ## Étape 6 - comportement en cas d'échec
